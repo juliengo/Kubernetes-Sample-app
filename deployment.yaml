@@ -14,13 +14,13 @@ spec:
     spec:
       containers:
       - name: test-app
-        image: julie54321/kubernetes_images:latest
+        image: nginx:latest
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 3000
+        - containerPort: 80
 ---
 
 apiVersion: v1
@@ -32,6 +32,6 @@ spec:
     app: test-app
   ports:
   - port: 3000
-    targetPort: 3000
+    targetPort: 80
     nodePort: 30000
   type: NodePort
